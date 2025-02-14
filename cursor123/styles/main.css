@@ -1,0 +1,370 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #00b4d8;
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --hover-color: #2d2d2d;
+    --accent-color: #00b4d8;
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.main-header {
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    margin-top: 70px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    color: var(--text-color);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1));
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 180, 216, 0.1) 10px,
+            rgba(0, 180, 216, 0.1) 20px
+        );
+    opacity: 0.1;
+    animation: flowLines 20s linear infinite;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
+}
+
+.course-grid, .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.course-card, .resource-card, .community-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover, .resource-card:hover, .community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 180, 216, 0.1);
+    border-color: var(--accent-color);
+}
+
+.course-card::before, .resource-card::before, .community-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 20px,
+        rgba(0, 180, 216, 0.03) 20px,
+        rgba(0, 180, 216, 0.03) 40px
+    );
+    transform: rotate(30deg);
+    animation: moveLines 10s linear infinite;
+    pointer-events: none;
+}
+
+.course-card h3, .resource-card h3, .community-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.course-meta, .community-meta {
+    color: var(--text-secondary);
+}
+
+.author {
+    color: var(--accent-color);
+}
+
+.description {
+    color: var(--text-secondary);
+}
+
+.course-link, .join-link {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.course-link:hover, .join-link:hover {
+    background: #00c4e8;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+}
+
+.platform {
+    color: var(--accent-color);
+}
+
+.community-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.members {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.join-link {
+    display: inline-block;
+    background: #0088cc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.join-link:hover {
+    background: #006699;
+}
+
+/* 添加发光动画效果 */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 180, 216, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 180, 216, 0.2);
+    }
+}
+
+.course-card:hover, .resource-card:hover, .community-card:hover {
+    animation: glow 2s infinite;
+}
+
+/* 背景网格动画 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, var(--card-background) 1px, transparent 1px) 50% 50% / 30px 30px,
+        linear-gradient(var(--card-background) 1px, transparent 1px) 50% 50% / 30px 30px;
+    opacity: 0.1;
+    z-index: -1;
+    animation: moveGrid 15s linear infinite;
+}
+
+/* 添加流动的科技线条 */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 180, 216, 0.1) 10px,
+            rgba(0, 180, 216, 0.1) 20px
+        );
+    opacity: 0.1;
+    animation: flowLines 20s linear infinite;
+}
+
+/* 添加动画关键帧 */
+@keyframes moveGrid {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(30px, 30px);
+    }
+}
+
+@keyframes flowLines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+@keyframes moveLines {
+    0% {
+        transform: rotate(30deg) translateY(0);
+    }
+    100% {
+        transform: rotate(30deg) translateY(-40px);
+    }
+}
+
+/* 修改主页面背景 */
+main::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(0, 180, 216, 0.05) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 添加悬浮时的光晕效果 */
+.course-card:hover::after,
+.resource-card:hover::after,
+.community-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(0, 180, 216, 0.2) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
